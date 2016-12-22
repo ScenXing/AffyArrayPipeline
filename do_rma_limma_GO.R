@@ -4,6 +4,7 @@ library("plyr")
 library("GO.db")
 library(GOstats)
 options(stringsAsFactors=FALSE)
+###library(hgu133plus2.db) ##Affymetrix Human Genome U133 Plus 2.0 Array annotation data (chip hgu133plus2)
 
 parameters <- read.table("parameters.txt", blank.lines.skip=TRUE, header=FALSE, row.names =1, comment.char="#")
 arrayType <- parameters["array",1]
@@ -15,7 +16,7 @@ if(specie=="mouse"){
   library(org.Mm.eg.db) 
   goDB <- "org.Mm.eg"}
 if(specie=="human"){ 
-  library(org.Hs.eg.db) 
+  library(org.Hs.eg.db)
   goDB <- "org.Hs.eg"}
 
 # prepare pheno data
